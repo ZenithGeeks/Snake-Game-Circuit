@@ -1,18 +1,18 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 24.10.2016 12:06:23
-// Design Name: 
+// Design Name: Snake Game 2016
 // Module Name: VGA_module
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3 by Digilent
+// Tool Versions: 2015.3
 // Description: 
 // This a module to control the VGA data transmission. It takes the input COLOUR_IN from the wrapper module and transmitts it to the
 // screen if the pixel address is within the range of the screen
-// Dependencies: 
+// Dependencies: Generic_counter.v
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -24,13 +24,13 @@
 module VGA_module(
     input CLK,
     input [11:0] COLOUR_IN,
-    //input [1:0] MSM_STATE,
     output reg [11:0] COLOUR_OUT,
     output reg HS,
     output reg VS,
     output reg [9:0] ADDRH,
     output reg [8:0] ADDRY
     );
+    
     // stating all the wire connections
     wire  TRIG_1;
     wire  HorTriggOut;
@@ -39,8 +39,6 @@ module VGA_module(
     wire  [9:0] VerticalCount;
     wire  [11:0] COLOUR_IN;
    
-   
-    
     //Time in vertical lines
     parameter VertTimeToPulseWidthEnd   = 10'd2;
     parameter VertTimeToBackPorchEnd    = 10'd31;
@@ -87,7 +85,6 @@ module VGA_module(
                        .CLK(CLK),
                        .ENABLE_IN(HorTriggOut),
                        .RESET(1'b0),
-//                       .TRIG_OUT(VerticalTriggOut),
                        .COUNT(VerticalCount)
                        );
                
