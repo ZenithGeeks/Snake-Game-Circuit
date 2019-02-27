@@ -2,6 +2,7 @@
 *Basic Snake Game developed in Verilog for BASYS3 board *
 
 **Description:** 
+
 This project is aimed to present the famous Snake Game using Verilog HDL and VGA as output to the screen. 
 The module snake_wrapper is designed to integrate all thye bits of the project.
                
@@ -27,4 +28,5 @@ To start the game, Right, Left, Down or Up button should be pressed. In order to
 * TIMED MODE- SW15
 
 **TIMED GAME MODE**
+
 In this mode player has 60 seconds to eat 10 targets. If the time is up, game is over. To exit this game mode, set the SW15 switch to the OFF position when in the starting screen.
