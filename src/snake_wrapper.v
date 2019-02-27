@@ -6,9 +6,9 @@
 // Create Date: 16.11.2016 14:28:43
 // Design Name: Snake Game 2016
 // Module Name: snake_wrapper
-// Project Name: 
+// Project Name: Snake_Game
 // Target Devices: BASYS3 by Digilent
-// Tool Versions: 
+// Tool Versions: 2015.3
 // Description: This project is aimed to present the famous Snake Game using Verilog HDL and VGA as output to the screen. 
 //              The module snake_wrapper is designed to integrate all thye bits of the project.
 //               
@@ -21,7 +21,6 @@
 //               -Navigation_state_machine.v
 // 
 // Revision:20/11/2016
-// Revision 0.01 - File Created
 // Additional Comments: HOW TO PLAY
 /////////////////////// To start the game, Right, Left, Down or Up button should be pressed.
 /////////////////////// In order to choose timed game mode, SW15 should be set in the ON position.
