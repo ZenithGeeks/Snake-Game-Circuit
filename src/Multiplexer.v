@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 19.10.2016 16:41:45
-// Design Name: 
+// Design Name: Snake Game 2016
 // Module Name: Multiplexer
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3
+// Tool Versions: 2015.3
+// Description: 4-to-1 Multiplexer
 // 
 // Dependencies: 
 // 

@@ -1,22 +1,20 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 14.11.2016 09:25:20
-// Design Name: 
+// Design Name: Snake Game 2016
 // Module Name: random_num_gen
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3 by Digilent
+// Tool Versions: 2015.3
 // Description: the aim of this module is to generate two random numbers each time the target is reached by the snake. 
 //              Once it happens, the two generated numbers will act as the x and y coordinates for the new target.
 // 
-// Dependencies: 
+// Dependencies: none
 // 
-// Revision:
 // Revision 0.01 - File Created
-// Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 

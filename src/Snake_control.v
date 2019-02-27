@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 15.11.2016 20:03:02
-// Design Name: 
+// Design Name: Snake Game 2016
 // Module Name: Snake_control
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3 by Digilent
+// Tool Versions: 2015.3
 // Description: This is the main module of the project. It performs all the operation with snake and defines the coloures to be displayed.
 //              Here the length of the snake is defined, target is coloured, win, lose and play interfaces are described.
 //              It also controls the timer and determines whether the target has been reached by the snake. 
@@ -70,7 +70,7 @@ module Snake_control(
         TARGET_REACHED <= 0;
         Timed_Mode <= 0;
         SnakeVar <= SmallSnake;
-        end
+      end
      
      
       // This is the counter that reduces the clock frequency and thus determines the snake speed
