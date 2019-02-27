@@ -1,18 +1,17 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 15.11.2016 16:09:42
-// Design Name: 
+// Design Name: Snake Game 2016
 // Module Name: Master_state_machine
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3 
+// Tool Versions: 2015.3
 // Description: This module controls whether to display a starting screen, snake game interface, win or lose.
 // 
-// Dependencies: -Snake_control.v
-//               -Score_counter.v
+// Dependencies: 
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -50,49 +49,49 @@ module Master_state_machine(
     assign MSM_STATE = Curr_state;
         
     always@(posedge CLK or posedge RESET)
-       begin
-          if (RESET) 
-               Curr_state <= 0;
-          else 
-               Curr_state <= Next_state;
-       end
+    begin
+      if (RESET) 
+           Curr_state <= 0;
+      else 
+           Curr_state <= Next_state;
+    end
     
 
-         // List the signals to be checked for the state transition
-         always@(Curr_state or BTNL or BTNU or BTNR or BTND or RESET or SCORE_WIN or LOST or WIN) begin
-              
-                  case (Curr_state)
-                  
-                      START    :begin
-                          if (BTNL || BTNU || BTNR || BTND)
-                              Next_state <= 2'd1;
-                          else
-                              Next_state <= Curr_state;
-                      end
-                      // transition to the win screen can be done
-                      // either from the normal or timed mode
-                      PLAY    :begin
-                           if (SCORE_WIN || WIN)
-                               Next_state <= 2'd2;
-                           else if (LOST)
-                               Next_state <= 2'd3;
-                           else 
-                               Next_state <= Curr_state; 
-                      end
-                               
-                      WINNER    :begin
-                           if (RESET)
-                               Next_state <= 2'd0;
-                           else
-                               Next_state <= Curr_state;
-                      end
-                      
-                      LOSER     :begin
-                            if (RESET)
-                               Next_state <= 2'd0;
-                            else
-                               Next_state <= Curr_state;
-                      end
-                 endcase              
-           end        
+    // List the signals to be checked for the state transition
+    always@(Curr_state or BTNL or BTNU or BTNR or BTND or RESET or SCORE_WIN or LOST or WIN) begin
+
+          case (Curr_state)
+
+              START    :begin
+                  if (BTNL || BTNU || BTNR || BTND)
+                      Next_state <= 2'd1;
+                  else
+                      Next_state <= Curr_state;
+              end
+              // transition to the win screen can be done
+              // either from the normal or timed mode
+              PLAY    :begin
+                   if (SCORE_WIN || WIN)
+                       Next_state <= 2'd2;
+                   else if (LOST)
+                       Next_state <= 2'd3;
+                   else 
+                       Next_state <= Curr_state; 
+              end
+
+              WINNER    :begin
+                   if (RESET)
+                       Next_state <= 2'd0;
+                   else
+                       Next_state <= Curr_state;
+              end
+
+              LOSER     :begin
+                    if (RESET)
+                       Next_state <= 2'd0;
+                    else
+                       Next_state <= Curr_state;
+              end
+         endcase              
+    end        
 endmodule
