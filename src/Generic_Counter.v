@@ -1,17 +1,17 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 19.10.2016 16:03:45
-// Design Name: 
+// Design Name: Snake Game 2016 
 // Module Name: Generic_Counter
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3
+// Tool Versions: 2015.3
+// Description: Parameterised counter
 // 
-// Dependencies: 
+// Dependencies: none
 // 
 // Revision:
 // Revision 0.01 - File Created
