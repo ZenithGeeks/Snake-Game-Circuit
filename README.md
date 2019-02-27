@@ -4,7 +4,6 @@
 **Description:** 
 
 This project is aimed to present the famous Snake Game using Verilog HDL and VGA as output to the screen. 
-The module snake_wrapper is designed to integrate all thye bits of the project.
                
 **Dependencies:** 
 - random_num_gen.v
