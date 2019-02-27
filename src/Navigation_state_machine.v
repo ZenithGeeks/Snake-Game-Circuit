@@ -1,17 +1,17 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: University of Edinburgh
+// Engineer: Vladislav Rumiantsev
 // 
 // Create Date: 15.11.2016 16:36:06
-// Design Name: 
+// Design Name: Snake Game 2016
 // Module Name: Navigation_state_machine
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// Project Name: Snake_Game
+// Target Devices: BASYS3 
+// Tool Versions: 2015.3
 // Description: This module is designed to choose the direction of the movement of the snake based on the button inputs
 // 
-// Dependencies: -Snake_control.v
+// Dependencies: 
 // 
 // Revision:
 // Revision 0.01 - File Created
