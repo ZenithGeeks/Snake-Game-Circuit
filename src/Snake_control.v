@@ -48,8 +48,8 @@ module Snake_control(
       parameter MaxY = 119;
       
       parameter RED = 12'b000000001111;
-      parameter BLUE = 12'b111100000000;
-      parameter YELLOW = 12'b000011111111;
+      parameter BLUE = 12'b000011110000;
+      parameter YELLOW = 12'b111100000000;
       parameter BLACK = 12'b000000000000;
     
       // registers to store the snake addresses
@@ -75,7 +75,7 @@ module Snake_control(
      
       // This is the counter that reduces the clock frequency and thus determines the snake speed
       Generic_counter # (.COUNTER_WIDTH(23),
-                         .COUNTER_MAX(3999999)
+                         .COUNTER_MAX(1999999)
                          )
                          FreqCounter (
                          .CLK(CLK),
