@@ -171,7 +171,17 @@ module Snake_control(
                      // Every time the address of the head of the snake corresponds to the address
                      // of the target, TARGET_REACHED signal is generated.
                      // At the same time, the SnakeVAr increases to make the snake longer
-                                        
+
+                     if (SnakeState_X[0] > MaxX || SnakeState_X[0] < 0 ||
+                        SnakeState_Y[0] > MaxY || SnakeState_Y[0] < 0) begin
+                     
+                     SnakeVar <= SmallSnake;
+                     for(i=0;i<SnakeLength; i=i+1) begin
+                        SnakeState_X[i] <= 80;
+                        SnakeState_Y[i] <=100;
+                        end
+                    end
+
                      if (SnakeState_X[1] == TARGET_ADDR_H && SnakeState_Y[1] == TARGET_ADDR_V) begin
                           TARGET_REACHED <= 1; 
                           if(SnakeVar < SnakeLength)
