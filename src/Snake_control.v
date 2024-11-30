@@ -39,7 +39,8 @@ module Snake_control(
                 input       WIN,
                 output reg [11:0] COLOUR_OUT,
                 output reg TARGET_REACHED,
-                output reg Timed_Mode
+                output reg Timed_Mode,
+                output reg HitWall
     );
      
       parameter SnakeLength = 20;
@@ -48,8 +49,8 @@ module Snake_control(
       parameter MaxY = 119;
       
       parameter RED = 12'b000000001111;
-      parameter BLUE = 12'b000011110000;
-      parameter YELLOW = 12'b111100000000;
+      parameter BLUE = 12'b111100000000;
+      parameter YELLOW = 12'b000011111111;
       parameter BLACK = 12'b000000000000;
     
       // registers to store the snake addresses
@@ -75,7 +76,7 @@ module Snake_control(
      
       // This is the counter that reduces the clock frequency and thus determines the snake speed
       Generic_counter # (.COUNTER_WIDTH(23),
-                         .COUNTER_MAX(1999999)
+                         .COUNTER_MAX(3999999)
                          )
                          FreqCounter (
                          .CLK(CLK),
@@ -146,7 +147,8 @@ module Snake_control(
                   
                      // If the address of the snake head corresponds to the address received from 
                      // the VGA_module, pixel is coloured in yellow do depict the snake head.
-                                                    
+
+                            
                      if(ADDRH[9:2] == SnakeState_X[0] && ADDRY[8:2] == SnakeState_Y[0])
                      COLOUR_OUT <= YELLOW;           
                      
@@ -171,17 +173,7 @@ module Snake_control(
                      // Every time the address of the head of the snake corresponds to the address
                      // of the target, TARGET_REACHED signal is generated.
                      // At the same time, the SnakeVAr increases to make the snake longer
-
-                     if (SnakeState_X[0] > MaxX || SnakeState_X[0] < 0 ||
-                        SnakeState_Y[0] > MaxY || SnakeState_Y[0] < 0) begin
-                     
-                     SnakeVar <= SmallSnake;
-                     for(i=0;i<SnakeLength; i=i+1) begin
-                        SnakeState_X[i] <= 80;
-                        SnakeState_Y[i] <=100;
-                        end
-                    end
-
+                                        
                      if (SnakeState_X[1] == TARGET_ADDR_H && SnakeState_Y[1] == TARGET_ADDR_V) begin
                           TARGET_REACHED <= 1; 
                           if(SnakeVar < SnakeLength)
@@ -273,6 +265,7 @@ module Snake_control(
         if(RESET) begin
             SnakeState_X[0] <= 80;
             SnakeState_Y[0] <= 100;
+            HitWall <= 0;
         end
         
         else if (TRIG_1 == 1) begin
@@ -280,28 +273,28 @@ module Snake_control(
                 // UP
                 2'b00 :begin
                     if(SnakeState_Y[0] == 0)
-                        SnakeState_Y[0] <= MaxY;
+                        HitWall <= 1;
                     else
                         SnakeState_Y[0] <= SnakeState_Y[0] - 1;
                  end
                 //RIGHT 
                 2'b10 : begin
                     if(SnakeState_X[0] == MaxX)
-                        SnakeState_X[0] <= 0;
+                        HitWall <= 1;
                     else
                         SnakeState_X[0] <= SnakeState_X[0] + 1;
                     end 
                 //LEFT 
                 2'b01 : begin
                     if(SnakeState_X[0] == 0)
-                        SnakeState_X[0] <= MaxX;
+                        HitWall <= 1;
                     else
                         SnakeState_X[0] <= SnakeState_X[0] - 1;
                 end
                 //DOWN
                 2'b11 :begin
                     if(SnakeState_Y[0] == MaxY)
-                        SnakeState_Y[0] <= 0;
+                        HitWall <= 1;
                     else
                         SnakeState_Y[0] <= SnakeState_Y[0] + 1;
                     end
