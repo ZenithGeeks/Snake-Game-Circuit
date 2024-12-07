@@ -21,6 +21,7 @@ module Score_counter(
     input CLK,
     input RESET,
     input TARGET_REACHED,
+    input HitWall,
     input Timed_Mode,
     input [1:0] MSM_STATE,
     output [3:0] SEG_SELECT_OUT,
@@ -148,12 +149,13 @@ module Score_counter(
                );
     
     // When the score reaches 10, the SCORE_win signal is generated
-    always@(posedge CLK) begin
-        if (DecCount0 == 1)
-            SCORE_WIN <= 1;
-        else 
-            SCORE_WIN <= 0;
-    end    
+//    always@(posedge CLK) begin
+//        if (DecCount0 == 1)
+//            SCORE_WIN <= 1;
+//        else 
+//            SCORE_WIN <= 0;
+ 
+//    end    
                
     // Timer code
     // This part of code is designed to introduce a timer if a special game mode is chosen
@@ -204,8 +206,13 @@ module Score_counter(
         WIN <= 0;
         STOP = 1;
         end
+        else if (HitWall == 1) begin
+            LOST <= 1; 
+            WIN <= 0;
+            STOP = 1;
+        end 
         else if(DecCount2 < timer && DecCount0 == 1) begin
-        WIN <= 1;
+//        WIN <= 1;
         LOST <= 0;
         STOP <= 1;
         end
