@@ -70,6 +70,8 @@ module snake_wrapper(
     
     wire TARGET_REACHED;
     
+    wire HitWall;
+    
     wire [11:0] COLOUR_OUTS;
     
     wire [9:0] ADDRH;
@@ -124,6 +126,7 @@ module snake_wrapper(
                             .SEG_SELECT_OUT(SEG_SELECT_OUT),
                             .DEC_OUT(DEC_OUT),
                             .SCORE_WIN(SCORE_WIN),
+                            .HitWall(HitWall),
                             .Timed_Mode(Timed_Mode),
                             .MSM_STATE(MSM_STATE),
                             .LOST(LOST),
@@ -151,6 +154,7 @@ module snake_wrapper(
                             .ADDRY(ADDRV),
                             .COLOUR_OUT(COLOUR_OUTS),
                             .TARGET_REACHED(TARGET_REACHED),
+                            .HitWall(HitWall),
                             .CLK(CLK),
                             .GAME_IN(GAME_IN),
                             .Timed_Mode(Timed_Mode),
